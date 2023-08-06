@@ -1,0 +1,4 @@
+%{
+  "fast_xml": {:hex, :fast_xml, "1.1.49", "67d9bfcadd04efd930e0ee1412b5ea09d3e791f1fdbd4d3e9a8c8f29f8bfed8c", [:rebar3], [{:p1_utils, "1.0.25", [hex: :p1_utils, repo: "hexpm", optional: false]}], "hexpm", "01da064d2f740818956961036637fee2475c17bf8aab9442217f90dc77883593"},
+  "p1_utils": {:hex, :p1_utils, "1.0.25", "2d39b5015a567bbd2cc7033eeb93a7c60d8c84efe1ef69a3473faa07fa268187", [:rebar3], [], "hexpm", "9219214428f2c6e5d3187ff8eb9a8783695c2427420be9a259840e07ada32847"},
+}
