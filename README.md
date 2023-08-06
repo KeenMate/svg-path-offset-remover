@@ -3,7 +3,7 @@
 Application used for moving paths extracted from SVGs into 0,0 position (top-left corner of sprite to be at 0,0).
 It now serves for single purpose and screnario - it is quite limited at the moment.
 
-It now also only parses M (move absoulute), L (Line) and V (Vertical line) commands inside of d attribute of path element.
+It now also only parses `M` (move absoulute), `L` (Line) and `V` (Vertical line) commands inside of `d` attribute of `path` element.
 
 # Usage
 
