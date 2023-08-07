@@ -8,7 +8,7 @@ defmodule SvgPathOffsetRemover do
     output_file_path: binary() | nil
   }
 
-  @path_coords_regex ~r/[ML]([-+]?\d*\.\d+|[-+]?\d+) ([-+]?\d*\.\d+|[-+]?\d+)|V([-+]?\d*\.\d+|[-+]?\d+)/
+  @path_coords_regex ~r/[ML]([-+]?\d*\.\d+|[-+]?\d+) ([-+]?\d*\.\d+|[-+]?\d+)|[VH]([-+]?\d*\.\d+|[-+]?\d+)|[CS]((([-+]?\d*\.\d+|[-+]?\d+)[, ]*)+)/
   @type coords :: %{
     x: number(),
     y: number()
@@ -105,8 +105,8 @@ defmodule SvgPathOffsetRemover do
             [<<cmd, _::binary>>, x, y] when cmd in ~C(M L) ->
               [cmd, remove_offset_from_value(x, coords_offset.x), " ", remove_offset_from_value(y, coords_offset.y)]
 
-            ["V" <> _, "", "", y] ->
-              ["V", to_string(String.to_float(y) - coords_offset.y)]
+            [<<cmd, _::binary>>, "", "", y] when cmd in ~C(V H) ->
+              [cmd, to_string(String.to_float(y) - coords_offset.y)]
           end)
           # |> Enum.intersperse(" ")
           |> IO.iodata_to_binary()
